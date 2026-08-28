@@ -17,6 +17,7 @@ def download_stock_data(ticker: str, start: str, end: str) -> Path:
         
     data = data.reset_index()
 
+    path.parent.mkdir(parents=True, exist_ok=True)
     data.to_csv(path, index=False)
     print(f"done! saved at {path}")
     return path

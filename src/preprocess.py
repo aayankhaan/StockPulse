@@ -16,6 +16,8 @@ def preprocess(path: Path) -> pd.DataFrame:
 
 def save_processed(df: pd.DataFrame, filename: str) -> Path:
     out_path = Path(f"data/processed/{filename}")
+
+    out_path.parent.mkdir(parents=True, exist_ok=True)
     df.to_csv(out_path)
     print(f"Saved to {out_path}")
 
